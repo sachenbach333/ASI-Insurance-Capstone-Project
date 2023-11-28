@@ -1,0 +1,14 @@
+- hosts: your-aws-ec2-instance
+ become: yes
+ tasks:
+ - name: Pull Docker Image from Docker Hub
+ docker_image:
+ name: your-docker-image-name
+ source: pull
+
+ - name: Run Docker Container
+ docker_container:
+ name: your-container-name
+ image: your-docker-image-name
+ ports:
+ - "80:80"
